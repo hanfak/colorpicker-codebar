@@ -4,6 +4,11 @@ function setPreviewColor(color) {
   $(".preview").css('background-color', color);
 }
 
+// get input value
+// $('#color').val()
+
 $(document).ready(function() {
-  setPreviewColor('green');
+  $(document).on('keyup', '#color', function(){
+   setPreviewColor($('#color').val());
+  });
 });
