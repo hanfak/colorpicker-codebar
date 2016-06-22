@@ -1,4 +1,5 @@
 /* Exercise 2: Color picker */
+var colors = [ "22ac5e", "d68236", "770077",'blue' ];
 
 function setPreviewColor(color) {
   $(".preview").css('background-color', color);
@@ -14,12 +15,20 @@ function addBox(color) {
   $("#colors").prepend(boxDiv);
 }
 
-$(document).ready(function() {
-  var colors = [ "22ac5e", "d68236", "770077",'blue' ];
+function setInitialFav(){
   $.each(colors, function(index, word) {
-  //  console.log('Position ' + index + ': ' + word);
-   addBox(word);
- });
+    addBox(word);
+  });
+}
+
+function setInitialPreview(){
+  var index = Math.floor(Math.random()*colors.length);
+  setPreviewColor(colors[index]);
+}
+
+$(document).ready(function() {
+  setInitialFav();
+  setInitialPreview();
 
   $(document).on('keyup', '#color', function(){
    setPreviewColor($('#color').val());
