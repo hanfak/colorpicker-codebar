@@ -2,6 +2,7 @@
 
 function setPreviewColor(color) {
   $(".preview").css('background-color', color);
+  $(".color-code").text(getColor());
 }
 
 function getColor(){
