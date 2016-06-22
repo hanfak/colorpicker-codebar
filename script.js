@@ -18,4 +18,10 @@ $(document).ready(function() {
   $(document).on('keyup', '#color', function(){
    setPreviewColor($('#color').val());
   });
+
+  $(document).on('click', '#add-to-favorite', function() {
+    addBox(getColor());
+    $('#color').val('');
+  });
+
 });
