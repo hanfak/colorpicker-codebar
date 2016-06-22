@@ -34,18 +34,21 @@ function removeLasFav(){
   }
 }
 
+function addToFav(){
+  addBox(getColor());
+  removeLasFav();
+  $('#color').val('');
+  $('#color').focus();
+}
+
 $(document).ready(function() {
   setInitialFav();
   setInitialPreview();
-    $('#color').focus();
+  $('#color').focus();
+
   $(document).on('keyup', '#color', function(){
    setPreviewColor($('#color').val());
   });
 
-  $(document).on('click', '#add-to-favorite', function() {
-    addBox(getColor());
-    removeLasFav();
-    $('#color').val('');
-    $('#color').focus();
-  });
+  $(document).on('click', '#add-to-favorite', addToFav);
 });
