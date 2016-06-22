@@ -15,6 +15,12 @@ function addBox(color) {
 }
 
 $(document).ready(function() {
+  var colors = [ "22ac5e", "d68236", "770077",'blue' ];
+  $.each(colors, function(index, word) {
+  //  console.log('Position ' + index + ': ' + word);
+   addBox(word);
+ });
+
   $(document).on('keyup', '#color', function(){
    setPreviewColor($('#color').val());
   });
