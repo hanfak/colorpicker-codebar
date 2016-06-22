@@ -51,4 +51,9 @@ $(document).ready(function() {
   });
 
   $(document).on('click', '#add-to-favorite', addToFav);
+
+  $(document).on('mouseenter', ".item", function(){
+    var previewColor  = getColor();
+    setPreviewColor($(this).css("background-color"));
+  });
 });
