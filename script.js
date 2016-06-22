@@ -26,17 +26,26 @@ function setInitialPreview(){
   setPreviewColor(colors[index]);
 }
 
+function removeLasFav(){
+  var favsCount = $("#colors .item").length;
+  if(favsCount >=16){
+    var lastFav = $("#colors .item:last-child");
+    lastFav.remove();
+  }
+}
+
 $(document).ready(function() {
   setInitialFav();
   setInitialPreview();
-
+    $('#color').focus();
   $(document).on('keyup', '#color', function(){
    setPreviewColor($('#color').val());
   });
 
   $(document).on('click', '#add-to-favorite', function() {
     addBox(getColor());
+    removeLasFav();
     $('#color').val('');
+    $('#color').focus();
   });
-
 });
