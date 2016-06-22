@@ -42,6 +42,8 @@ function addToFav(){
 }
 
 $(document).ready(function() {
+  var previewColor= getColor();
+
   setInitialFav();
   setInitialPreview();
   $('#color').focus();
@@ -53,7 +55,10 @@ $(document).ready(function() {
   $(document).on('click', '#add-to-favorite', addToFav);
 
   $(document).on('mouseenter', ".item", function(){
-    var previewColor  = getColor();
     setPreviewColor($(this).css("background-color"));
+  });
+
+  $(document).on('mouseleave', '.item', function() {
+    setPreviewColor(previewColor);
   });
 });
