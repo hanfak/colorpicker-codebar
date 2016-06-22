@@ -1,10 +1,9 @@
 /* Exercise 2: Color picker */
 
+function setPreviewColor(color) {
+  $(".preview").css('background-color', color);
+}
 
 $(document).ready(function() {
-  $(".preview").css('background-color', 'purple');
-
-  $(document).on('click', '.preview', function() {
-    $(".preview").css('background-color', 'red');
-  });
+  setPreviewColor('green');
 });
